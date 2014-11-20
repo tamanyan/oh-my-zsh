@@ -1,0 +1,48 @@
+#compdef slim
+
+_slim() {
+  _arguments \
+    -I'[Adds <path> to the head of the load path list.]:path' \
+    -p1'[Profiler level 1]' \
+    -p2'[Profiler level 2]' \
+    -p3'[Profiler level 3]' \
+    --use-builtin-rule'[Load the rules builtin this application for arithmetic, nlmem, etc]' \
+    --nd'[Change the execution mode from RunTime(RT) to ModelChecker(MC)]' \
+    --translate'[Change the execution mode to Output translated C from LMNtal]' \
+    -t'[(RT) Show execution path (MC) Show state space]' \
+    --hide-ruleset'[Hide ruleset from result]' \
+    --hl'[(RT) Allow using hyperlink system]' \
+    --show-proxy'[Show proxy atoms]' \
+    --show-chr'[Show applied history in uniq rulesets (constraint handling rules)]' \
+    --show-transition'[(MC) Show transition information in state transition graph]' \
+    --show-ends'[(MC) Show all of terminated states]' \
+    --show-hl'[(RT) Show all hyperlinks details]' \
+    --dump-lavit'[(MC) Print format: LaViT - LMNtal IDE (State Transition Graph)]' \
+    --dump-inc'[(MC) State Generation and Output of states at the same time]' \
+    --dump-json'[Print format: JSON]' \
+    --nc'[(MC) Input <file> as a property automata (LTL2BA format)]:file' \
+    --psym'[(MC) Input <file> as propositional symbol definitions]:file' \
+    --ltl'[(MC) Do LTL model checking (need --psym, --nc)]' \
+    --ltl-all'[(MC) Generate full state space and exhaustive search]' \
+    --bfs'[(MC) Use BFS strategy]' \
+    --bfs-lsync'[(MC) Use Layer Synchronized BFS strategy]' \
+    --use-owcty'[(MC) Use OWCTY algorithm  (LTL model checking)]' \
+    --use-map'[(MC) Use MAP algorithm    (LTL model checking)]' \
+    --use-mapndfs'[(MC) Use Map+NDFS algorithm (LTL model checking)]' \
+    --use-mcndfs'[(MC) Use Multicore NDFS algorithm (LTL model checking)]' \
+    --use-bledge'[(MC) Use BLEDGE algorithm (LTL model checking)]' \
+    --disable-map-h'[(MC) No use MAP heuristics(LTL model checking)]' \
+    --pscc-driven'[(MC) Use SCC analysis of property automata (LTL model checking)]' \
+    --use-Ncore'[(MC) Use <N>threads]:thread num' \
+    --delta-mem'[(MC) Use delta membrane generator]' \
+    --tree-compress'[(MC) Use Tree Compression with 2^N table size default(N=15)]:table size' \
+    --hash-compaction'[(MC) Use Hash Compaction]' \
+    --hash-depth'[(MC) Set <N> Depth of Hash Function]:hash depth num' \
+    --mem-enc'[(MC) Use canonical membrane representation]' \
+    --ltl-f'[(MC) Input <ltl> formula directly. (need LTL2BA env)]' \
+    --visualize'[(MC) Output information for visualize]' \
+    --run-test'[Run CUnit]' \
+    --version'[Prints version and exits]' \
+    {-h,--help}'[show help]' \
+    '*:script:_files'
+}
