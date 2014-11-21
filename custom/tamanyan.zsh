@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 HISTFILE=~/.oh-my-zsh/log/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
