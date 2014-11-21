@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 
+# option
+setopt print_eight_bit
+setopt no_beep
+setopt auto_cd
+setopt auto_pushd
+
 # history
 HISTFILE=~/.oh-my-zsh/log/.zsh_history
 HISTSIZE=10000
@@ -36,6 +42,53 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 zstyle ':completion:*' menu select
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+
+# alias
+alias diff='colordiff -u'
+alias sudo='sudo '
+alias vi='vim'
+alias resource='source ~/.zshrc'
+
+# functions
+function zssh() {
+  ssh "$@" -t /bin/zsh
+}
+
+# percol
+## sudo pip install percol
+## create ~/.percol.d/rc.py
+function percol-get-destination-from-cdr() {
+    cdr -l | \
+        sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
+        percol --match-method migemo --query "$LBUFFER"
+}
+
+### search a destination from cdr list and cd the destination
+function percol-cdr() {
+    local destination="$(percol-get-destination-from-cdr)"
+    if [ -n "$destination" ]; then
+        BUFFER="cd $destination"
+        zle accept-line
+    else
+        zle reset-prompt
+    fi
+}
+zle -N percol-cdr
+bindkey '^@' percol-cdr
+
+function percol_select_history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+    CURSOR=$#BUFFER             # move cursor
+    zle -R -c                   # refresh
+}
+zle -N percol_select_history
+bindkey '^R' percol_select_history
 
 autoload -Uz is-at-least
 
