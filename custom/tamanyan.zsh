@@ -14,25 +14,40 @@ setopt hist_ignore_dups
 setopt hist_reduce_blanks
 setopt hist_save_nodups
 
-# for Homebrew
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
+function mac_config() {
+  # for Homebrew
+  export PATH=/usr/local/sbin:$PATH
+  export PATH=/usr/local/bin:$PATH
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+  # rbenv
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Python
-export PYTHONIOENCODING=UTF-8
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+  # Python
+  export PYTHONIOENCODING=UTF-8
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
 
-# nvm
-source $HOME/.nvm/nvm.sh
-nvm use v0.11.12 > /dev/null
+  # nvm
+  source $HOME/.nvm/nvm.sh
+  nvm use v0.11.12 > /dev/null
 
-# LMNtal
-export LMNTAL_HOME="/Applications/LaViT2_8_6/lmntal"
+  # LMNtal
+  export LMNTAL_HOME="/Applications/LaViT2_8_6/lmntal"
+}
+
+function linux_config() {
+
+}
+
+case ${OSTYPE} in
+    darwin*)
+        mac_config
+        ;;
+    linux*)
+        linux_config
+        ;;
+esac
 
 # LS colors
 export LSCOLORS=exfxcxdxbxegedabagacad
