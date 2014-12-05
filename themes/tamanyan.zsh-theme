@@ -32,7 +32,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$FG[190]%}✭%{$reset_color%}"
 
 function _python_version() {
   pyenv=`whence -p pyenv_prompt_info`
-  if [ -n $pyenv ]; then
+  if [ -n "$pyenv" ]; then
     if [ $(pyenv_prompt_info) != 'system' ]; then
       echo "(pyenv $(pyenv_prompt_info))"
     fi
