@@ -34,6 +34,8 @@ function mac_config() {
 
   # LMNtal
   export LMNTAL_HOME="/Applications/LaViT2_8_6/lmntal"
+
+  export EDITOR=/usr/bin/vim
 }
 
 function linux_config() {
