@@ -31,6 +31,7 @@ function mac_config() {
   # nvm
   source $HOME/.nvm/nvm.sh
   nvm use v0.11.12 > /dev/null
+  eval "$(npm completion 2)"
 
   # LMNtal
   export LMNTAL_HOME="/Applications/LaViT2_8_6/lmntal"
