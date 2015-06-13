@@ -37,6 +37,8 @@ function mac_config() {
   export LMNTAL_HOME="/Applications/LaViT2_8_6/lmntal"
 
   export EDITOR=/usr/bin/vim
+
+  test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 }
 
 function linux_config() {
