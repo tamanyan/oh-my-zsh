@@ -30,7 +30,7 @@ function mac_config() {
 
   # nvm
   source $HOME/.nvm/nvm.sh
-  nvm use v0.11.12 > /dev/null
+  nvm use v0.12.1 > /dev/null
   eval "$(npm completion 2)"
 
   # LMNtal
@@ -38,6 +38,7 @@ function mac_config() {
 
   export EDITOR=/usr/bin/vim
 
+  alias mvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/mvim "$@"'
   test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 }
 
