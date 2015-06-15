@@ -47,11 +47,11 @@ ZSH_THEME="tamanyan"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git ruby rbenv gem rails bundler python pip django pyenv sudo cp brew coffee composer brew-cask bower nvm slim)
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
