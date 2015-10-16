@@ -45,7 +45,7 @@ ZSH_THEME="tamanyan"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rbenv gem rails bundler python pip django pyenv sudo cp brew coffee composer brew-cask bower nvm slim)
+plugins=(git rails ruby rbenv gem bundler python django pip virtualenv sudo brew brew-cask osx cp history-substring-search history vagrant pyenv slim npm grunt zsh-syntax-highlighting pep8 mix boot2docker docker gradle atom)
 
 # User configuration
 
