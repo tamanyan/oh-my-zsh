@@ -21,16 +21,16 @@ function mac_config() {
 
   # rbenv
   export PATH="$HOME/.rbenv/bin:$PATH"
-  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+  if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
   # Python
   export PYTHONIOENCODING=UTF-8
   export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
+  if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+  if which pyenv-virtualenv > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-  # nvm
-  source $HOME/.nvm/nvm.sh
-  nvm use v0.12.1 > /dev/null
+  # nodebrew
+  export PATH=$HOME/.nodebrew/current/bin:$PATH
   eval "$(npm completion 2)"
 
   # LMNtal
